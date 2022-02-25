@@ -1,0 +1,19 @@
+a{
+    color: black;
+    text-decoration: none;
+}
+footer{
+    background-color: var(--tertiary-color);
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px;
+    ul{
+        list-style: none;
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        li{
+            margin: 0 20px;
+        }
+    }
+}
