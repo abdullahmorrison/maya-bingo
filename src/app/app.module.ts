@@ -8,6 +8,7 @@ import { BoardComponent } from './board/board.component';
 import { SwitchComponent } from './switch/switch.component';
 import { NewGameComponent } from './new-game/new-game.component';
 import { FooterComponent } from './footer/footer.component';
+import { BoardTileComponent } from './board-tile/board-tile.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FooterComponent } from './footer/footer.component';
     BoardComponent,
     SwitchComponent,
     NewGameComponent,
-    FooterComponent
+    FooterComponent,
+    BoardTileComponent
   ],
   imports: [
     BrowserModule
