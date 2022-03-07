@@ -1,4 +1,26 @@
 .board-tile{
+    background-color: white;
+
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding: 2px;
+    outline: 1px solid black;
+
+    width: 125px;
+    height: 125px;
+    img{
+        max-width: 80px;
+        font-size: small;
+    }
+    label{
+        font-size: small;
+    }
+}
+.board-tile:hover{
+    background-color: var(--hover-color);
+    cursor: pointer;
 }
