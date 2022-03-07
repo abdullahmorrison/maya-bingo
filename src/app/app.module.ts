@@ -9,6 +9,7 @@ import { SwitchComponent } from './switch/switch.component';
 import { NewGameComponent } from './new-game/new-game.component';
 import { FooterComponent } from './footer/footer.component';
 import { BoardTileComponent } from './board-tile/board-tile.component';
+import { ChipComponent } from './chip/chip.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BoardTileComponent } from './board-tile/board-tile.component';
     SwitchComponent,
     NewGameComponent,
     FooterComponent,
-    BoardTileComponent
+    BoardTileComponent,
+    ChipComponent
   ],
   imports: [
     BrowserModule
