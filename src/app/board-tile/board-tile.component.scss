@@ -23,7 +23,7 @@
         font-size: small;
     }
 }
-.board-tile:hover{
+.board-tile:hover, .board-tile>*:hover{
     background-color: var(--hover-color);
     cursor: pointer;
 }
