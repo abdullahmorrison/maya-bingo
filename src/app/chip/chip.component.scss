@@ -1,12 +1,23 @@
 .chip{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    //Position of the Chip on the tile
+    position: absolute;
+    top: 25px;
+    left: 25px;
 
+    //Chip style
     background-color: var(--primary-color);
     border-radius: 50%;
     outline: 2px solid black;
     padding: 5px 5px 6px 5px; //6px centers the img
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
+
+    //position of the image in the chip
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img{
+        width: 55px;
+        height: 55px;
+    }
 }
