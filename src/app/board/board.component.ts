@@ -164,4 +164,7 @@ export class BoardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClick(tile: {title:string; imgSrc: string; imgAltText:string; clicked: boolean}){
+    tile.clicked = !tile.clicked
+  }
 }

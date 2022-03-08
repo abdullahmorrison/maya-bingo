@@ -1,7 +1,11 @@
 <div class="board">
-    <app-board-tile *ngFor="let tile of alveusBoard" 
+    <app-board-tile 
+        *ngFor="let tile of alveusBoard" 
+        (click)="onClick(tile)"
+
         [title]="tile.title"
         [imgSrc]="tile.imgSrc"
         [imgAltText]="tile.imgAltText"
+        [clicked]="tile.clicked"
     ></app-board-tile>
 </div>

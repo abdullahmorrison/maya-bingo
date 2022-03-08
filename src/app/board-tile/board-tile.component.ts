@@ -9,11 +9,13 @@ export class BoardTileComponent implements OnInit {
   @Input() imgSrc: string
   @Input() imgAltText: string
   @Input() title: string
+  @Input() clicked: boolean
 
   constructor() { 
     this.imgSrc = ""
     this.imgAltText = "No Image"
     this.title = "No Title"
+    this.clicked = false
   }
 
   ngOnInit(): void {

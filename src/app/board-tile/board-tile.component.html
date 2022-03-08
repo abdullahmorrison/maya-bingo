@@ -1,4 +1,5 @@
 <div class="board-tile">
-    <img [src]="imgSrc" [alt]="imgAltText">
+    <img [src]="imgSrc" [alt]="imgAltText" draggable="false">
     <label for="">{{title}}</label>
+    <app-chip *ngIf="clicked"></app-chip>
 </div>
