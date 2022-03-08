@@ -1,0 +1,12 @@
+button{
+    all: unset;
+    outline: 1px solid black;
+    background-color: white;
+    font-size: x-large;
+    
+    padding: 5px 10px;
+}
+button:hover{
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
