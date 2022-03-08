@@ -1,1 +1,7 @@
-<p>board works!</p>
+<div class="board">
+    <app-board-tile *ngFor="let tile of alveusBoard" 
+        [title]="tile.title"
+        [imgSrc]="tile.imgSrc"
+        [imgAltText]="tile.imgAltText"
+    ></app-board-tile>
+</div>
