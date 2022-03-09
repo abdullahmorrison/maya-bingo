@@ -1,6 +1,6 @@
 <div class="board">
     <app-board-tile 
-        *ngFor="let tile of alveusBoard" 
+        *ngFor="let tile of boardData" 
         (click)="onClick(tile)"
 
         [title]="tile.title"
