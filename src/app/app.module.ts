@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -24,7 +25,8 @@ import { ChipComponent } from './chip/chip.component';
     ChipComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent]
