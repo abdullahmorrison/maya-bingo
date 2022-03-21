@@ -14,3 +14,12 @@
         padding: 20px;
     }
 }
+
+@media only screen and (max-width: 1200px) {
+    .game{
+        main{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
