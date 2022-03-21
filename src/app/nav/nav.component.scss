@@ -12,3 +12,13 @@ nav{
         margin-right: 10px;
     }
 }
+@media only screen and (max-width: 1200px) {
+    nav{
+        h1{
+            font-size: 2.5rem;
+        }
+        img{
+            max-width: 40px;
+        }
+    }
+}

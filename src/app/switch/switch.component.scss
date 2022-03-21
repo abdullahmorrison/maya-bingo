@@ -78,3 +78,25 @@ input:checked + .slider:before {
     transform: translateX(48px);
   }
 }
+@media only screen and (max-width: 725px) {
+  .switch{
+    height: 40px;
+    width: 80px;
+  }
+  .slider:before {
+    height: 30px;
+    width: 30px;
+  }
+  input:checked + .slider:before {
+    -webkit-transform: translateX(48px);
+    -ms-transform: translateX(48px);
+    transform: translateX(40px);
+  }
+  @media only screen and (max-width: 475px) {
+    .switch-container{
+      label{
+        font-size: small;
+      }
+    }
+  }
+}

@@ -3,3 +3,8 @@
     grid-template-columns: repeat(5, 1fr);
     margin: 0 20px;
 }
+@media only screen and (max-width: 535px) {
+    .board{
+        margin: 5px;
+    }
+}
