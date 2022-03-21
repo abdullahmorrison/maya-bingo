@@ -21,5 +21,8 @@
             display: flex;
             flex-direction: column;
         }
+        main>:nth-child(1) { order: 1; }
+        main>:nth-child(2) { order: 3; }
+        main>:nth-child(3) { order: 2; }
     }
 }
