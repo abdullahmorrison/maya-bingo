@@ -9,9 +9,9 @@
         margin-bottom: 10px;
     }
 }
-@media only screen and (max-width: 435px) {
+@media only screen and (max-width: 725px) {
     .description{
-        max-width: 80vw;
+        max-width: 400px;
         h2{
             font-size: large;
         }
@@ -21,5 +21,10 @@
         p{
             font-size: small;
         }
+    }
+}
+@media only screen and (max-width: 435px) {
+    .description{
+        max-width: 80vw;
     }
 }
