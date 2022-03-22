@@ -17,7 +17,7 @@
     img{
         max-width: 80px;
         max-height: 60px;
-        font-size: small;
+        font-size: small;//img alt text
     }
     label{
         font-size: small;
@@ -26,4 +26,39 @@
 .board-tile:hover, .board-tile>*:hover{
     background-color: var(--hover-color);
     cursor: pointer;
+}
+
+@media only screen and (max-width: 725px) {
+    .board-tile{
+        max-width: 100px;
+        max-height: 100px;
+        img{
+            max-width: 50px;
+            max-height: 40px;
+            font-size: x-small;//img alt text
+        }
+        label{
+            font-size: x-small;
+        }
+    }
+}
+@media only screen and (max-width: 600px) {
+    .board-tile{
+        max-width: 75px;
+        max-height: 100px;
+    }
+}
+@media only screen and (max-width: 475px) {
+    .board-tile{
+        max-width: 65px;
+        max-height: 100px;
+        img{
+            max-width: 45px;
+            max-height: 40px;
+            font-size: xx-small;//img alt text
+        }
+        label{
+            font-size: xx-small;
+        }
+    }
 }

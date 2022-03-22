@@ -20,5 +20,8 @@ export class BoardTileComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
+  click(){
+    this.clicked = !this.clicked 
+  }
 }

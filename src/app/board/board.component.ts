@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import alveusBoard from '../../assets/board/alveus.json'
+// import desktopBoard from '../../assets/board/desktop.json'
 
 @Component({
   selector: 'app-board',
@@ -12,9 +13,5 @@ export class BoardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  onClick(tile: {title:string; imgSrc: string; imgAltText:string; clicked: boolean}){
-    tile.clicked = !tile.clicked
   }
 }

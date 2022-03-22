@@ -9,7 +9,7 @@
   display: inline-block;
   width: 50px;
   height: 100px;
-  margin: 15px 0;
+  margin: 15px;
 }
 
 /* Hide default HTML checkbox */
@@ -62,4 +62,41 @@ input:checked + .slider:before {
 .slider.round:before {
   background-color: var(--primary-color);
   border-radius: 50%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .switch-container{
+    flex-direction: row;
+  }
+  .switch{
+    height: 50px;
+    width: 100px;
+  }
+  input:checked + .slider:before {
+    -webkit-transform: translateX(48px);
+    -ms-transform: translateX(48px);
+    transform: translateX(48px);
+  }
+}
+@media only screen and (max-width: 725px) {
+  .switch{
+    height: 40px;
+    width: 80px;
+  }
+  .slider:before {
+    height: 30px;
+    width: 30px;
+  }
+  input:checked + .slider:before {
+    -webkit-transform: translateX(48px);
+    -ms-transform: translateX(48px);
+    transform: translateX(40px);
+  }
+  @media only screen and (max-width: 475px) {
+    .switch-container{
+      label{
+        font-size: small;
+      }
+    }
+  }
 }

@@ -17,3 +17,17 @@ footer{
         }
     }
 }
+@media only screen and (max-width: 535px) {
+    footer{
+        padding: 20px 0;
+        ul{
+            li{
+                margin: 0 5px;
+                font-size: small;
+                img{
+                    width: 30px;
+                }
+            }
+        }
+    }
+}

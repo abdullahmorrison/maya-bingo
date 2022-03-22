@@ -21,3 +21,39 @@
         height: 55px;
     }
 }
+@media only screen and (max-width: 725px) {
+    .chip{
+        top: 18px;
+        left: 18px;
+
+        width: 60px;
+        height: 60px;
+        img{
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
+@media only screen and (max-width: 600px) {
+    .chip{
+        top: 20px;
+        left: 10px;
+
+        width: 50px;
+        height: 50px;
+        img{
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
+@media only screen and (max-width: 475px) {
+    .chip{
+        width: 40px;
+        height: 40px;
+        img{
+            width: 30px;
+            height: 30px;
+        }
+    }
+}

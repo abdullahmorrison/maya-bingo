@@ -14,3 +14,22 @@
         padding: 20px;
     }
 }
+
+@media only screen and (max-width: 1200px) {
+    .game{
+        main{
+            display: flex;
+            flex-direction: column;
+        }
+        main>:nth-child(1) { order: 1; }
+        main>:nth-child(2) { order: 3; }
+        main>:nth-child(3) { order: 2; }
+    }
+}
+@media only screen and (max-width: 535px) {
+    .game{
+        main{
+            padding: 20px 5px;
+        }
+    }
+}
