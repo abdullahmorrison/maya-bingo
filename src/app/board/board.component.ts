@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
+import { Store } from '@ngrx/store';
+import * as BoardActions from '../../store/board/board.actions';
+
 import alveusBoard from '../../assets/board/alveus.json'
 // import desktopBoard from '../../assets/board/desktop.json'
 
@@ -10,13 +14,13 @@ import alveusBoard from '../../assets/board/alveus.json'
 export class BoardComponent implements OnInit {
   boardData = alveusBoard
 
-  constructor() { }
+  constructor(private store: Store<{board: string}>) { }
 
   ngOnInit(): void {
   }
 
   bingo(){
-
+    this.store.dispatch(BoardActions.bingo())
   }
   /**
    * @description Check if a row, column, or diagonal is filled with chips
