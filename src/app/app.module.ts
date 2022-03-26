@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+//ngrx
 import { StoreModule } from '@ngrx/store';
+import { boardReducer } from 'src/store/board/board.reducers';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -26,7 +29,7 @@ import { ChipComponent } from './chip/chip.component';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({board: boardReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
