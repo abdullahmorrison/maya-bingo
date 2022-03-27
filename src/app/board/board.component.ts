@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import * as BoardActions from '../../store/board/board.actions';
 
 import alveusBoard from '../../assets/board/alveus.json'
-// import desktopBoard from '../../assets/board/desktop.json'
+import desktopBoard from '../../assets/board/desktop.json'
 
 @Component({
   selector: 'app-board',
@@ -14,10 +15,13 @@ import alveusBoard from '../../assets/board/alveus.json'
 export class BoardComponent implements OnInit {
   boardData = alveusBoard
 
-  constructor(private store: Store<{board: string}>) { }
+  board$: Observable<string>
 
-  ngOnInit(): void {
+  constructor(private store: Store<{board: string}>) { 
+    this.board$ = this.store.select('board')
   }
+
+  ngOnInit(): void { }
 
   bingo(){
     this.store.dispatch(BoardActions.bingo())
