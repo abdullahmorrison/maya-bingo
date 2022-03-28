@@ -4,7 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 //ngrx
 import { StoreModule } from '@ngrx/store';
 import { boardReducer } from 'src/store/board/board.reducers';
+//devtools
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
+//components
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { DescriptionComponent } from './description/description.component';
@@ -29,7 +33,8 @@ import { ChipComponent } from './chip/chip.component';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({board: boardReducer})
+    StoreModule.forRoot({board: boardReducer}),
+    StoreDevtoolsModule.instrument({ logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
