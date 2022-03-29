@@ -1,4 +1,6 @@
+import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
+import * as BoardActions from '../../store/board/board.actions';
 
 @Component({
   selector: 'app-switch',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SwitchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<{board: string}>) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  handleClick(){
+    this.store.dispatch(BoardActions.switchBoard()) 
   }
-
 }
