@@ -1,17 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.cdnfonts.com/css/futura-md-bt');
+@import url("https://fonts.cdnfonts.com/css/futura-md-bt");
 
-:root{
-    --primary-color: #636A60;
-    --secondary-color: #F9EEE7;
-    --tertiary-color: #A8A8A8;
-    --hover-color: #EEE;
+:root {
+  --primary-color: #636a60;
+  --secondary-color: #f9eee7;
+  --tertiary-color: #a8a8a8;
+  --hover-color: #eee;
 }
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
+
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
-body{
-    background-color: var(--secondary-color);
-    font-family: 'Futura Md BT', sans-serif;
+
+body {
+  background-color: var(--secondary-color);
+  font-family: "Futura Md BT", sans-serif;
 }
