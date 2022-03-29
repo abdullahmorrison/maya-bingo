@@ -1,152 +1,155 @@
-[
-    {
-        "title": "Singing Time",
-        "imgSrc": "../../assets/board/desktop/pepoCandle.png",
-        "imgAltText": "pepoCandle emote",
-        "clicked": false
-    },
-    {
-        "title": "Wheel Time",
-        "imgSrc": "../../assets/board/desktop/wheel.png",
-        "imgAltText": "Maya's wheel",
-        "clicked": false
-    },
-    {
-        "title": "$50+ Dono",
-        "imgSrc": "../../assets/board/desktop/wasteMoney.png",
-        "imgAltText": "mayahiMoney emote",
-        "clicked": false
-    },
-    {
-        "title": "Maya is Drunk",
-        "imgSrc": "../../assets/board/desktop/mayaDrunk.png",
-        "imgAltText": "mayahiPPEH emote",
-        "clicked": false
-    },
-    {
-        "title": "New Bounty",
-        "imgSrc": "../../assets/board/desktop/mayahiBounty.png",
-        "imgAltText": "mayahiBounty emote",
-        "clicked": false
-    },
-    {
-        "title": "Watching Another Person's Stream",
-        "imgSrc": "../../assets/board/desktop/watchingAnotherStream.png",
-        "imgAltText": "Twitch stream",
-        "clicked": false
-    },
-    {
-        "title": "Liked TikToks Time",
-        "imgSrc": "../../assets/board/desktop/likedTiktoks.png",
-        "imgAltText": "Like icon and TikTok logo",
-        "clicked": false
-    },
-    {
-        "title": "Sponsored Stream",
-        "imgSrc": "../../assets/board/desktop/sponsor.png",
-        "imgAltText": "Displate",
-        "clicked": false
-    },
-    {
-        "title": "Applying Makeup",
-        "imgSrc": "../../assets/board/desktop/applyMakeUp.png",
-        "imgAltText": "Maya applying makeup",
-        "clicked": false
-    },
-    {
-        "title": "Cringe Chatter",
-        "imgSrc": "../../assets/board/desktop/cringeChatter.png",
-        "imgAltText": "mayahiPains emote",
-        "clicked": false
-    },
-    {
-        "title": "New Cringe in the Kitchen",
-        "imgSrc": "../../assets/board/desktop/cringeInKitchen.png",
-        "imgAltText": "Cringe in the kitchen banner",
-        "clicked": false
-    },
-    {
-        "title": "New Wine About It",
-        "imgSrc": "../../assets/board/desktop/wineAboutIt.png",
-        "imgAltText": "Wine About It banner",
-        "clicked": false
-    },
-    {
-        "title": "Maya Tells a College Story",
-        "imgSrc": "../../assets/board/desktop/collegeStory.png",
-        "imgAltText": "Graduation Cap",
-        "clicked": false
-    },
-    {
-        "title": "Maya Talks About Menstration",
-        "imgSrc": "../../assets/board/desktop/dansGame.png",
-        "imgAltText": "DansGame emote",
-        "clicked": false
-    },
-    {
-        "title": "Maya Tells a Fun Fact About Animals",
-        "imgSrc": "../../assets/board/desktop/animalFunFact.png",
-        "imgAltText": "mayahiG emote",
-        "clicked": false
-    },
-    {
-        "title": "Maya Looks at Her Subreddit",
-        "imgSrc": "../../assets/board/desktop/reddit.png",
-        "imgAltText": "Reddit Logo",
-        "clicked": false
-    },
-    {
-        "title": "Maya Plays with Newt and Mushroom",
-        "imgSrc": "../../assets/board/desktop/playNewtMushy.png",
-        "imgAltText": "Maya holding Newt and Mushroom",
-        "clicked": false
-    },
-    {
-        "title": "CringeToks Time",
-        "imgSrc": "../../assets/board/desktop/cringeTiktoks.png",
-        "imgAltText": "mayahiPains emote with TikTok logo",
-        "clicked": false
-    },
-    {
-        "title": "Ban Appeals Time",
-        "imgSrc": "../../assets/board/desktop/banAppeals.png",
-        "imgAltText": "Ban appeals button",
-        "clicked": false
-    },
-    {
-        "title": "Watching YouTube Videos",
-        "imgSrc": "../../assets/board/desktop/youtube.png",
-        "imgAltText": "YouTube logo",
-        "clicked": false
-    },
-    {
-        "title": "Maya Forgets Why She Liked a TikTok",
-        "imgSrc": "../../assets/board/desktop/forgetsTiktoks.png",
-        "imgAltText": "TikTok logo surrounded by question marks",
-        "clicked": false
-    },
-    {
-        "title": "Maya Calls QT a Bitch",
-        "imgSrc": "../../assets/board/desktop/qtCinderella.png",
-        "imgAltText": "QTCinderella's Face",
-        "clicked": false
-    },
-    {
-        "title": "Maya Like Toxic TikToks",
-        "imgSrc": "../../assets/board/desktop/toxicTiktoks.png",
-        "imgAltText": "TikTok logo surrounded by red flags",
-        "clicked": false
-    },
-    {
-        "title": "Dono Essay",
-        "imgSrc": "../../assets/board/desktop/chatting.png",
-        "imgAltText": "Chatting emote",
-        "clicked": false
-    },
-    {
-        "title": "Maya Cries on Stream",
-        "imgSrc": "../../assets/board/desktop/mayaCry.png",
-        "imgAltText": "SadgeCry emote",
-        "clicked": false
-    }
-]
+{
+    "type": "Desktop",
+    "tiles": [
+        {
+            "title": "Singing Time",
+            "imgSrc": "../../assets/board/desktop/pepoCandle.png",
+            "imgAltText": "pepoCandle emote",
+            "clicked": false
+        },
+        {
+            "title": "Wheel Time",
+            "imgSrc": "../../assets/board/desktop/wheel.png",
+            "imgAltText": "Maya's wheel",
+            "clicked": false
+        },
+        {
+            "title": "$50+ Dono",
+            "imgSrc": "../../assets/board/desktop/wasteMoney.png",
+            "imgAltText": "mayahiMoney emote",
+            "clicked": false
+        },
+        {
+            "title": "Maya is Drunk",
+            "imgSrc": "../../assets/board/desktop/mayaDrunk.png",
+            "imgAltText": "mayahiPPEH emote",
+            "clicked": false
+        },
+        {
+            "title": "New Bounty",
+            "imgSrc": "../../assets/board/desktop/mayahiBounty.png",
+            "imgAltText": "mayahiBounty emote",
+            "clicked": false
+        },
+        {
+            "title": "Watching Another Person's Stream",
+            "imgSrc": "../../assets/board/desktop/watchingAnotherStream.png",
+            "imgAltText": "Twitch stream",
+            "clicked": false
+        },
+        {
+            "title": "Liked TikToks Time",
+            "imgSrc": "../../assets/board/desktop/likedTiktoks.png",
+            "imgAltText": "Like icon and TikTok logo",
+            "clicked": false
+        },
+        {
+            "title": "Sponsored Stream",
+            "imgSrc": "../../assets/board/desktop/sponsor.png",
+            "imgAltText": "Displate",
+            "clicked": false
+        },
+        {
+            "title": "Applying Makeup",
+            "imgSrc": "../../assets/board/desktop/applyMakeUp.png",
+            "imgAltText": "Maya applying makeup",
+            "clicked": false
+        },
+        {
+            "title": "Cringe Chatter",
+            "imgSrc": "../../assets/board/desktop/cringeChatter.png",
+            "imgAltText": "mayahiPains emote",
+            "clicked": false
+        },
+        {
+            "title": "New Cringe in the Kitchen",
+            "imgSrc": "../../assets/board/desktop/cringeInKitchen.png",
+            "imgAltText": "Cringe in the kitchen banner",
+            "clicked": false
+        },
+        {
+            "title": "New Wine About It",
+            "imgSrc": "../../assets/board/desktop/wineAboutIt.png",
+            "imgAltText": "Wine About It banner",
+            "clicked": false
+        },
+        {
+            "title": "Maya Tells a College Story",
+            "imgSrc": "../../assets/board/desktop/collegeStory.png",
+            "imgAltText": "Graduation Cap",
+            "clicked": false
+        },
+        {
+            "title": "Maya Talks About Menstration",
+            "imgSrc": "../../assets/board/desktop/dansGame.png",
+            "imgAltText": "DansGame emote",
+            "clicked": false
+        },
+        {
+            "title": "Maya Tells a Fun Fact About Animals",
+            "imgSrc": "../../assets/board/desktop/animalFunFact.png",
+            "imgAltText": "mayahiG emote",
+            "clicked": false
+        },
+        {
+            "title": "Maya Looks at Her Subreddit",
+            "imgSrc": "../../assets/board/desktop/reddit.png",
+            "imgAltText": "Reddit Logo",
+            "clicked": false
+        },
+        {
+            "title": "Maya Plays with Newt and Mushroom",
+            "imgSrc": "../../assets/board/desktop/playNewtMushy.png",
+            "imgAltText": "Maya holding Newt and Mushroom",
+            "clicked": false
+        },
+        {
+            "title": "CringeToks Time",
+            "imgSrc": "../../assets/board/desktop/cringeTiktoks.png",
+            "imgAltText": "mayahiPains emote with TikTok logo",
+            "clicked": false
+        },
+        {
+            "title": "Ban Appeals Time",
+            "imgSrc": "../../assets/board/desktop/banAppeals.png",
+            "imgAltText": "Ban appeals button",
+            "clicked": false
+        },
+        {
+            "title": "Watching YouTube Videos",
+            "imgSrc": "../../assets/board/desktop/youtube.png",
+            "imgAltText": "YouTube logo",
+            "clicked": false
+        },
+        {
+            "title": "Maya Forgets Why She Liked a TikTok",
+            "imgSrc": "../../assets/board/desktop/forgetsTiktoks.png",
+            "imgAltText": "TikTok logo surrounded by question marks",
+            "clicked": false
+        },
+        {
+            "title": "Maya Calls QT a Bitch",
+            "imgSrc": "../../assets/board/desktop/qtCinderella.png",
+            "imgAltText": "QTCinderella's Face",
+            "clicked": false
+        },
+        {
+            "title": "Maya Like Toxic TikToks",
+            "imgSrc": "../../assets/board/desktop/toxicTiktoks.png",
+            "imgAltText": "TikTok logo surrounded by red flags",
+            "clicked": false
+        },
+        {
+            "title": "Dono Essay",
+            "imgSrc": "../../assets/board/desktop/chatting.png",
+            "imgAltText": "Chatting emote",
+            "clicked": false
+        },
+        {
+            "title": "Maya Cries on Stream",
+            "imgSrc": "../../assets/board/desktop/mayaCry.png",
+            "imgAltText": "SadgeCry emote",
+            "clicked": false
+        }
+    ]
+}
