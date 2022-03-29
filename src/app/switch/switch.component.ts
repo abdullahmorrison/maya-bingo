@@ -19,14 +19,14 @@ export class SwitchComponent implements OnInit {
 
     //Change document colors
     let primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim()
-    if(primaryColor == '#636A60'){
-      document.documentElement.style.setProperty('--primary-color', '#FF9BD7');
-      document.documentElement.style.setProperty('--secondary-color', '#FFF6FE');
-      document.documentElement.style.setProperty('--tertiary-color', '#FFD1ED');
+    if(primaryColor == '#636a60'){
+      document.documentElement.style.setProperty('--primary-color', '#ff9bd7');
+      document.documentElement.style.setProperty('--secondary-color', '#fff6fe');
+      document.documentElement.style.setProperty('--tertiary-color', '#ffd1ed');
     }else{
-      document.documentElement.style.setProperty('--primary-color', '#636A60');
-      document.documentElement.style.setProperty('--secondary-color', '#F9EEE7');
-      document.documentElement.style.setProperty('--tertiary-color', '#A8A8A8');
+      document.documentElement.style.setProperty('--primary-color', '#636a60');
+      document.documentElement.style.setProperty('--secondary-color', '#f9eee7');
+      document.documentElement.style.setProperty('--tertiary-color', '#a8a8a8');
     }
   }
 }
