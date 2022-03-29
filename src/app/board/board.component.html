@@ -1,6 +1,6 @@
 <div class="board">
     <app-board-tile 
-        *ngFor="let tile of boardData" 
+        *ngFor="let tile of (board$ | async)?.tiles" 
 
         [title]="tile.title"
         [imgSrc]="tile.imgSrc"

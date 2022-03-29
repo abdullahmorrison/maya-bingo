@@ -1,3 +1,4 @@
+import { Board } from './../../store/board/board.model';
 import { Component, OnInit } from '@angular/core';
 
 import { Store } from '@ngrx/store';
@@ -15,9 +16,9 @@ import desktopBoard from '../../assets/board/desktop.json'
 export class BoardComponent implements OnInit {
   boardData = alveusBoard
 
-  board$: Observable<string>
+  board$: Observable<Board>
 
-  constructor(private store: Store<{board: string}>) { 
+  constructor(private store: Store<{board: Board}>) { 
     this.board$ = this.store.select('board')
   }
 
@@ -32,10 +33,10 @@ export class BoardComponent implements OnInit {
   checkBingo(chipsInARow: number) {
     let chips = 0
     //*Check horizontal win
-    for (var i = 0; i < this.boardData.length; i+=chipsInARow) {
+    for (var i = 0; i < this.boardData.tiles.length; i+=chipsInARow) {
       for (var j = i; j < i+chipsInARow; j++) {
         //checking the row
-        if (this.boardData[j].clicked == true) {
+        if (this.boardData.tiles[j].clicked == true) {
           chips++;
         }
       }
@@ -46,8 +47,8 @@ export class BoardComponent implements OnInit {
     }
     //*Check vertical win
     for (i = 0; i < chipsInARow; i++) {
-      for (j = i; j < this.boardData.length; j+=chipsInARow) {
-        if (this.boardData[j].clicked == true) {
+      for (j = i; j < this.boardData.tiles.length; j+=chipsInARow) {
+        if (this.boardData.tiles[j].clicked == true) {
           chips++;
         }
       }
@@ -57,8 +58,8 @@ export class BoardComponent implements OnInit {
       chips = 0;
     }
     //*Check top-left to bottom-right diagonal win
-    for (i = 0; i < this.boardData.length; i+=chipsInARow+1) {
-      if (this.boardData[i].clicked == true) {
+    for (i = 0; i < this.boardData.tiles.length; i+=chipsInARow+1) {
+      if (this.boardData.tiles[i].clicked == true) {
         chips++;
       }
     }
@@ -67,8 +68,8 @@ export class BoardComponent implements OnInit {
     }
     chips = 0;
     //*Check top-right to bottom-left diagonal win
-    for (i = chipsInARow-1; i < this.boardData.length-1; i+=chipsInARow-1) {
-      if (this.boardData[i].clicked == true) {
+    for (i = chipsInARow-1; i < this.boardData.tiles.length-1; i+=chipsInARow-1) {
+      if (this.boardData.tiles[i].clicked == true) {
         
         chips++;
       }
