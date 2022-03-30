@@ -21,6 +21,11 @@ export const boardReducer = createReducer(
         ({...state, 
             type: state.type == "Alveus" ? "Desktop" : "Alveus", 
             tiles: state.type == 'Alveus'? desktopBoard.tiles : alveusBoard.tiles
-        })
-    ),
+        })),
+    on(BoardActions.newGame, state =>
+        ({...state, 
+            bingo: false, 
+            goForBlackout: false,
+            tiles: state.type == 'Alveus'? alveusBoard.tiles : desktopBoard.tiles
+        })),
 )
