@@ -1,4 +1,4 @@
-import { addOrRemoveChip } from '../../store/board/board.actions';
+import { addChip, removeChip } from '../../store/board/board.actions';
 import { Board } from '../../store/board/board.model';
 import { Store } from '@ngrx/store';
 import { Component, Input, OnInit } from '@angular/core';
@@ -29,6 +29,10 @@ export class BoardTileComponent implements OnInit {
   }
   
   handleClick(){
-    this.store.dispatch(addOrRemoveChip({index: this.index}))
+    if(!this.clicked){
+      this.store.dispatch(addChip({index: this.index}))
+    }else{
+      this.store.dispatch(removeChip({index: this.index}))
+    }
   }
 }

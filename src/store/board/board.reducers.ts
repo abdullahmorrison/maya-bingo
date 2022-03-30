@@ -25,6 +25,15 @@ export const boardReducer = createReducer(
             ]
         })
     ),
+    on(BoardActions.removeChip, (state, {index}) => 
+        ({...state, 
+            tiles: [
+                ...state.tiles.slice(0, index), 
+                {...state.tiles[index], clicked: false}, 
+                ...state.tiles.slice(index + 1)
+            ]
+        })
+    ),
     on(BoardActions.goForBlackout, state => ({...state, goForBlackout: true})),
     on(BoardActions.switchBoard, state => 
         ({...state, 
