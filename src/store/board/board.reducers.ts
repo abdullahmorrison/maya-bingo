@@ -16,6 +16,15 @@ export const initialState: Board = {
 export const boardReducer = createReducer(
     initialState,
     on(BoardActions.bingo, state => ({...state, bingo: true})),
+    on(BoardActions.addChip, (state, {index}) => 
+        ({...state, 
+            tiles: [
+                ...state.tiles.slice(0, index), 
+                {...state.tiles[index], clicked: true}, 
+                ...state.tiles.slice(index + 1)
+            ]
+        })
+    ),
     on(BoardActions.goForBlackout, state => ({...state, goForBlackout: true})),
     on(BoardActions.switchBoard, state => 
         ({...state, 

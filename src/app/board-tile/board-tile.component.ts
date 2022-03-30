@@ -1,3 +1,6 @@
+import { addOrRemoveChip } from '../../store/board/board.actions';
+import { Board } from '../../store/board/board.model';
+import { Store } from '@ngrx/store';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -6,12 +9,16 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./board-tile.component.scss']
 })
 export class BoardTileComponent implements OnInit {
+  @Input() index: number
+
   @Input() imgSrc: string
   @Input() imgAltText: string
   @Input() title: string
   @Input() clicked: boolean
 
-  constructor() { 
+  constructor(private store: Store<{board: Board}>) { 
+    this.index = -1 // for ngrx to find which tile is clicked to add a chip
+
     this.imgSrc = ""
     this.imgAltText = "No Image"
     this.title = "No Title"
@@ -22,6 +29,6 @@ export class BoardTileComponent implements OnInit {
   }
   
   handleClick(){
-    this.clicked = !this.clicked 
+    this.store.dispatch(addOrRemoveChip({index: this.index}))
   }
 }
