@@ -1,3 +1,7 @@
+import { Board } from './../../store/board/board.model';
+import { Store } from '@ngrx/store';
+import  { newGame } from '../../store/board/board.actions';
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewGameComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<{board: Board}>) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  handleNewGame() {
+    this.store.dispatch(newGame())
   }
-
 }
