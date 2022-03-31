@@ -44,6 +44,6 @@ export const boardReducer = createReducer(
         ({...state, 
             bingo: false, 
             goForBlackout: false,
-            tiles: state.type == 'Alveus'? alveusBoard.tiles : desktopBoard.tiles
+            tiles: state.tiles.map(tile => ({...tile, clicked: false})).sort(() => Math.random() - 0.5)
         })),
 )
