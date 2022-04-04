@@ -1,6 +1,8 @@
 <div class="board">
     <app-board-tile 
-        *ngFor="let tile of (board$ | async)?.tiles" 
+        *ngFor="let tile of (board$ | async); let index = index" 
+
+        [index]="index"
 
         [title]="tile.title"
         [imgSrc]="tile.imgSrc"

@@ -1,12 +1,11 @@
-import { Board } from './../../store/board/board.model';
 import { Component, OnInit } from '@angular/core';
+import { Board } from './../../store/board/board.model';
+import { Tile } from './../../store/tile/tile.model';
 
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, throttleTime } from 'rxjs';
+import { map } from 'rxjs/operators';
 import * as BoardActions from '../../store/board/board.actions';
-
-import alveusBoard from '../../assets/board/alveus.json'
-import desktopBoard from '../../assets/board/desktop.json'
 
 @Component({
   selector: 'app-board',
@@ -14,69 +13,71 @@ import desktopBoard from '../../assets/board/desktop.json'
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  boardData = alveusBoard
-
-  board$: Observable<Board>
+  board$: Observable<Tile[]>
 
   constructor(private store: Store<{board: Board}>) { 
-    this.board$ = this.store.select('board')
+    this.board$ = this.store.select('board').pipe(
+      throttleTime(1), //throttled to avoid infinite loop when dispatching a bingo
+      map((board: Board) => board.tiles)
+    )
+
+    this.board$.subscribe({
+      next: tiles => {
+        let chipsNeeded = 5 //number of chips needed in a row, columd or diagonal to win
+
+        let chips = 0 // current number of chips
+        //Check horizontal win
+        for (var i = 0; i < tiles.length; i+=chipsNeeded) {
+          for (var j = i; j < i+chipsNeeded; j++) {
+            if (tiles[j].clicked == true) {
+              chips++
+            }
+          }
+          if (chips == chipsNeeded) {
+            this.bingo()
+          }
+          chips = 0
+        }
+        //Check vertical win
+        for (i = 0; i < chipsNeeded; i++) {
+          for (j = i; j < tiles.length; j+=chipsNeeded) {
+            if (tiles[j].clicked == true) {
+              chips++
+            }
+          }
+          if (chips == chipsNeeded) {
+            this.bingo()
+          }
+          chips = 0
+        }
+        //Check top-left to bottom-right diagonal win
+        for (i = 0; i < tiles.length; i+=chipsNeeded+1) {
+          if (tiles[i].clicked == true) {
+            chips++
+          }
+        }
+        if (chips == chipsNeeded) {
+          this.bingo()
+        }
+        chips = 0
+        //Check top-right to bottom-left diagonal win
+        for (i = chipsNeeded-1; i < tiles.length-1; i+=chipsNeeded-1) {
+          if (tiles[i].clicked == true) {
+            
+            chips++
+          }
+        }
+        if (chips == chipsNeeded) {
+          this.bingo()
+        }
+        chips = 0
+      }
+    })
   }
 
   ngOnInit(): void { }
 
-  bingo(){
+  bingo(): void{ 
     this.store.dispatch(BoardActions.bingo())
-  }
-  /**
-   * @description Check if a row, column, or diagonal is filled with chips
-   */
-  checkBingo(chipsInARow: number) {
-    let chips = 0
-    //*Check horizontal win
-    for (var i = 0; i < this.boardData.tiles.length; i+=chipsInARow) {
-      for (var j = i; j < i+chipsInARow; j++) {
-        //checking the row
-        if (this.boardData.tiles[j].clicked == true) {
-          chips++;
-        }
-      }
-      if (chips == chipsInARow) {
-        //checking for horizonal win
-      }
-      chips = 0;
-    }
-    //*Check vertical win
-    for (i = 0; i < chipsInARow; i++) {
-      for (j = i; j < this.boardData.tiles.length; j+=chipsInARow) {
-        if (this.boardData.tiles[j].clicked == true) {
-          chips++;
-        }
-      }
-      if (chips == chipsInARow) {//checking for vertical win
-        this.bingo()
-      }
-      chips = 0;
-    }
-    //*Check top-left to bottom-right diagonal win
-    for (i = 0; i < this.boardData.tiles.length; i+=chipsInARow+1) {
-      if (this.boardData.tiles[i].clicked == true) {
-        chips++;
-      }
-    }
-    if (chips == chipsInARow) {//checking for diagonal win
-      this.bingo()
-    }
-    chips = 0;
-    //*Check top-right to bottom-left diagonal win
-    for (i = chipsInARow-1; i < this.boardData.tiles.length-1; i+=chipsInARow-1) {
-      if (this.boardData.tiles[i].clicked == true) {
-        
-        chips++;
-      }
-    }
-    if (chips == chipsInARow) {//checking for diagonal win
-      this.bingo()
-    }
-    chips = 0;
   }
 }
