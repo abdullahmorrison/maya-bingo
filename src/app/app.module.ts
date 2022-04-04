@@ -18,6 +18,7 @@ import { NewGameComponent } from './new-game/new-game.component';
 import { FooterComponent } from './footer/footer.component';
 import { BoardTileComponent } from './board-tile/board-tile.component';
 import { ChipComponent } from './chip/chip.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ChipComponent } from './chip/chip.component';
     NewGameComponent,
     FooterComponent,
     BoardTileComponent,
-    ChipComponent
+    ChipComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
