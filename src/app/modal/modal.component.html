@@ -1,4 +1,4 @@
-<div id="myModal" class="modal">
+<div *ngIf="bingo$ | async" id="myModal" class="modal">
     <div class="modal-content">
         <div class="header">
             <span class="close">&times;</span>
@@ -10,7 +10,7 @@
             </div>
             <div class="buttons">
                 <button class="focus">Continue Playing</button>
-                <button>New Game</button>
+                <button (click)="newGame()">New Game</button>
             </div>
         </div>
     </div>
