@@ -1,6 +1,6 @@
 import { Board } from './../../store/board/board.model';
 import { Store } from '@ngrx/store';
-import  { newGame } from '../../store/board/board.actions';
+import * as BoardActions  from '../../store/board/board.actions';
 
 import { Component, OnInit } from '@angular/core';
 
@@ -16,6 +16,6 @@ export class NewGameComponent implements OnInit {
   ngOnInit(): void { }
 
   handleNewGame() {
-    this.store.dispatch(newGame())
+    this.store.dispatch(BoardActions.newGame())
   }
 }
