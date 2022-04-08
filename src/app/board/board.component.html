@@ -1,6 +1,6 @@
 <div class="board">
     <app-board-tile 
-        *ngFor="let tile of (board$ | async); let index = index" 
+        *ngFor="let tile of (board$ | async)?.tiles; let index = index" 
 
         [index]="index"
 

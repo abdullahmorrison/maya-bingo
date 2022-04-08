@@ -13,19 +13,19 @@ import * as BoardActions from '../../store/board/board.actions';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  board$: Observable<Tile[]>
+  board$: Observable<Board>
 
   constructor(private store: Store<{board: Board}>) { 
     this.board$ = this.store.select('board').pipe(
       throttleTime(1), //throttled to avoid infinite loop when dispatching a bingo
-      map((board: Board) => board.tiles)
     )
 
     this.board$.subscribe({
-      next: tiles => {
+      next: board => {
         let chipsNeeded = 5 //number of chips needed in a row, columd or diagonal to win
 
         let chips = 0 // current number of chips
+        let tiles = board.tiles
         //Check horizontal win
         for (var i = 0; i < tiles.length; i+=chipsNeeded) {
           for (var j = i; j < i+chipsNeeded; j++) {
