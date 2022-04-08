@@ -16,13 +16,13 @@ export class BoardComponent implements OnInit {
   board$: Observable<Board>
 
   constructor(private store: Store<{board: Board}>) { 
-    this.board$ = this.store.select('board').pipe(
-      throttleTime(1), //throttled to avoid infinite loop when dispatching a bingo
-    )
+    this.board$ = this.store.select('board')
 
     this.board$.subscribe({
       next: board => {
-        this.checkBingo(board.tiles)
+        if(!board.bingo){
+          this.checkBingo(board.tiles)
+        }
       }
     })
   }
