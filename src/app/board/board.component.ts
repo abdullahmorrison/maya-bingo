@@ -3,8 +3,7 @@ import { Board } from './../../store/board/board.model';
 import { Tile } from './../../store/tile/tile.model';
 
 import { Store } from '@ngrx/store';
-import { Observable, throttleTime } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import * as BoardActions from '../../store/board/board.actions';
 
 @Component({
