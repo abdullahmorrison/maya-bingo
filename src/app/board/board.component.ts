@@ -22,55 +22,7 @@ export class BoardComponent implements OnInit {
 
     this.board$.subscribe({
       next: board => {
-        let chipsNeeded = 5 //number of chips needed in a row, columd or diagonal to win
-
-        let chips = 0 // current number of chips
-        let tiles = board.tiles
-        //Check horizontal win
-        for (var i = 0; i < tiles.length; i+=chipsNeeded) {
-          for (var j = i; j < i+chipsNeeded; j++) {
-            if (tiles[j].clicked == true) {
-              chips++
-            }
-          }
-          if (chips == chipsNeeded) {
-            this.bingo()
-          }
-          chips = 0
-        }
-        //Check vertical win
-        for (i = 0; i < chipsNeeded; i++) {
-          for (j = i; j < tiles.length; j+=chipsNeeded) {
-            if (tiles[j].clicked == true) {
-              chips++
-            }
-          }
-          if (chips == chipsNeeded) {
-            this.bingo()
-          }
-          chips = 0
-        }
-        //Check top-left to bottom-right diagonal win
-        for (i = 0; i < tiles.length; i+=chipsNeeded+1) {
-          if (tiles[i].clicked == true) {
-            chips++
-          }
-        }
-        if (chips == chipsNeeded) {
-          this.bingo()
-        }
-        chips = 0
-        //Check top-right to bottom-left diagonal win
-        for (i = chipsNeeded-1; i < tiles.length-1; i+=chipsNeeded-1) {
-          if (tiles[i].clicked == true) {
-            
-            chips++
-          }
-        }
-        if (chips == chipsNeeded) {
-          this.bingo()
-        }
-        chips = 0
+        this.checkBingo(board.tiles)
       }
     })
   }
@@ -79,5 +31,69 @@ export class BoardComponent implements OnInit {
 
   bingo(): void{ 
     this.store.dispatch(BoardActions.bingo())
+  }
+
+  checkBingo(tiles: Tile[]): void {
+    let chipsNeeded = 5 //number of chips needed in a row, column or diagonal to win
+    this.checkRowBingo(tiles, chipsNeeded)
+    this.checkColumnBingo(tiles, chipsNeeded)
+    this.checkDiagonalBingo(tiles, chipsNeeded)
+  }
+
+  checkRowBingo(tiles: Tile[], chipsNeeded: number): void{
+    let chips = 0
+    //Check horizontal win
+    for (let i = 0; i < tiles.length; i+=chipsNeeded) {
+      for (let j = i; j < i+chipsNeeded; j++) {
+        if (tiles[j].clicked == true) {
+          chips++
+        }
+      }
+      if (chips == chipsNeeded) {
+        this.bingo()
+      }
+      chips = 0
+    }
+  }
+
+  checkColumnBingo(tiles: Tile[], chipsNeeded: number): void{
+    let chips = 0
+    //Check vertical win
+    for (let i = 0; i < chipsNeeded; i++) {
+      for (let j = i; j < tiles.length; j+=chipsNeeded) {
+        if (tiles[j].clicked == true) {
+          chips++
+        }
+      }
+      if (chips == chipsNeeded) {
+        this.bingo()
+      }
+      chips = 0
+    }
+  }
+
+  checkDiagonalBingo(tiles: Tile[], chipsNeeded: number): void{
+    let chips = 0
+    //Check top-left to bottom-right diagonal win
+    for (let i = 0; i < tiles.length; i+=chipsNeeded+1) {
+      if (tiles[i].clicked == true) {
+        chips++
+      }
+    }
+    if (chips == chipsNeeded) {
+      this.bingo()
+    }
+    chips = 0
+    //Check top-right to bottom-left diagonal win
+    for (let i = chipsNeeded-1; i < tiles.length-1; i+=chipsNeeded-1) {
+      if (tiles[i].clicked == true) {
+        
+        chips++
+      }
+    }
+    if (chips == chipsNeeded) {
+      this.bingo()
+    }
+    chips = 0
   }
 }
