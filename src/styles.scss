@@ -16,4 +16,5 @@
 body {
   background-color: var(--secondary-color);
   font-family: "Futura Md BT", sans-serif;
+  transition: background-color 0.2s ease;
 }
