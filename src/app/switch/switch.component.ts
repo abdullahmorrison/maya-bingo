@@ -23,10 +23,12 @@ export class SwitchComponent implements OnInit {
       document.documentElement.style.setProperty('--primary-color', '#ff9bd7');
       document.documentElement.style.setProperty('--secondary-color', '#fff6fe');
       document.documentElement.style.setProperty('--tertiary-color', '#ffd1ed');
+      document.documentElement.style.setProperty('--hover-color', '#fbdcf8');
     }else{
       document.documentElement.style.setProperty('--primary-color', '#636a60');
       document.documentElement.style.setProperty('--secondary-color', '#f9eee7');
       document.documentElement.style.setProperty('--tertiary-color', '#a8a8a8');
+      document.documentElement.style.setProperty('--hover-color', '#fbe1d1');
     }
   }
 }
