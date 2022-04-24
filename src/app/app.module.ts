@@ -1,8 +1,9 @@
+import { Board } from './../store/board/board.model';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 //ngrx
-import { StoreModule } from '@ngrx/store';
+import { StoreModule, MetaReducer, Action, ActionReducer, INIT, UPDATE } from '@ngrx/store';
 import { boardReducer } from 'src/store/board/board.reducers';
 //devtools
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -20,6 +21,36 @@ import { BoardTileComponent } from './board-tile/board-tile.component';
 import { ChipComponent } from './chip/chip.component';
 import { ModalComponent } from './modal/modal.component';
 
+export function storageMetaReducer(reducer: ActionReducer<any>) {
+  return function (state: Board, action: Action) {
+    if (action.type === INIT || action.type === UPDATE) {
+      const storage = localStorage.getItem('__storage__')
+      if (storage) {
+        if (JSON.parse(storage).board.type == 'Desktop') {
+          document.documentElement.style.setProperty('--primary-color', '#ff9bd7')
+          document.documentElement.style.setProperty('--secondary-color', '#fff6fe')
+          document.documentElement.style.setProperty('--tertiary-color', '#ffd1ed')
+          document.documentElement.style.setProperty('--hover-color', '#fbdcf8')
+        }
+        return JSON.parse(storage)
+      }
+    }
+
+
+    let nextState = reducer(state, action)
+    const savedState = localStorage.getItem('__storage__')
+
+    //merge savedState into nextState 
+    if (savedState) {
+      nextState = { ...JSON.parse(savedState), ...nextState }
+    }
+    localStorage.setItem('__storage__', JSON.stringify(nextState))
+    return nextState;
+  }
+}
+
+export const metaReducers: MetaReducer<any>[] = [storageMetaReducer];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +66,7 @@ import { ModalComponent } from './modal/modal.component';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({board: boardReducer}),
+    StoreModule.forRoot({ board: boardReducer }, { metaReducers }),
     StoreDevtoolsModule.instrument({ logOnly: environment.production })
   ],
   providers: [],
