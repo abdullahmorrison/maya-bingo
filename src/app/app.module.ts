@@ -28,7 +28,6 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
     // if a user is visiting the site for the first time (no local storage)
     if (localStorage.length == 0) {
       //save initial state
-      localStorage.setItem('Bingo', JSON.stringify(nextState.board.bingo))
       localStorage.setItem('Board Type', JSON.stringify(nextState.board.type))
       localStorage.setItem('Alveus Board', JSON.stringify(nextState.board.tiles))
       localStorage.setItem('Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
@@ -57,7 +56,9 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
         }
         break
 
-      case '[Board] Add Chip' || '[Board] Remove Chip':
+      case '[Board] Add Chip':
+      case '[Board] Remove Chip':
+      case '[Board] New Game':
         if (boardType) {
           if (JSON.parse(boardType) == 'Alveus') {
             if (alveusBoard)
@@ -67,6 +68,24 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
             if (desktopBoard)
               nextState = { ...JSON.parse(desktopBoard), ...nextState }
             localStorage.setItem('Desktop Board', JSON.stringify(nextState.board.tiles))
+          }
+        }
+        break
+
+      case '[Board] Switch Stream':
+        if (boardType) {
+          if (JSON.parse(boardType) == 'Desktop') {
+            if (alveusBoard)
+              nextState.board.tiles = JSON.parse(alveusBoard)
+            else
+              localStorage.setItem('Alveus Board', JSON.stringify(nextState.board.tiles))
+            localStorage.setItem('Board Type', JSON.stringify('Alveus'))
+          } else if (JSON.parse(boardType) == 'Alveus') {
+            if (desktopBoard)
+              nextState.board.tiles = JSON.parse(desktopBoard)
+            else
+              localStorage.setItem('Desktop Board', JSON.stringify(nextState.board.tiles))
+            localStorage.setItem('Board Type', JSON.stringify('Desktop'))
           }
         }
         break
