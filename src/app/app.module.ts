@@ -23,29 +23,55 @@ import { ModalComponent } from './modal/modal.component';
 
 export function storageMetaReducer(reducer: ActionReducer<any>) {
   return function (state: Board, action: Action) {
-    if (action.type === INIT || action.type === UPDATE) {
-      const storage = localStorage.getItem('__storage__')
-      if (storage) {
-        if (JSON.parse(storage).board.type == 'Desktop') {
-          document.documentElement.style.setProperty('--primary-color', '#ff9bd7')
-          document.documentElement.style.setProperty('--secondary-color', '#fff6fe')
-          document.documentElement.style.setProperty('--tertiary-color', '#ffd1ed')
-          document.documentElement.style.setProperty('--hover-color', '#fbdcf8')
-        }
-        return JSON.parse(storage)
-      }
-    }
-
-
     let nextState = reducer(state, action)
-    const savedState = localStorage.getItem('__storage__')
 
-    //merge savedState into nextState 
-    if (savedState) {
-      nextState = { ...JSON.parse(savedState), ...nextState }
+    // if a user is visiting the site for the first time (no local storage)
+    if (localStorage.length == 0) {
+      //save initial state
+      localStorage.setItem('Bingo', JSON.stringify(nextState.board.bingo))
+      localStorage.setItem('Board Type', JSON.stringify(nextState.board.type))
+      localStorage.setItem('Alveus Board', JSON.stringify(nextState.board.tiles))
+      localStorage.setItem('Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
+      return nextState
     }
-    localStorage.setItem('__storage__', JSON.stringify(nextState))
-    return nextState;
+
+    const boardType = localStorage.getItem('Board Type')
+    const alveusBoard = localStorage.getItem('Alveus Board')
+    const desktopBoard = localStorage.getItem('Desktop Board')
+    const alveusGoForBlackout = localStorage.getItem('Alveus Go For Blackout')
+    const desktopGoForBlackout = localStorage.getItem('Desktop Go For Blackout')
+
+    switch (action.type) {
+      case INIT: //if the page is refreshed
+        if (boardType) {
+          if (JSON.parse(boardType) == 'Desktop' && desktopBoard) {
+            nextState.board.tiles = JSON.parse(desktopBoard)
+            // page colors for desktop stream
+            document.documentElement.style.setProperty('--primary-color', '#ff9bd7')
+            document.documentElement.style.setProperty('--secondary-color', '#fff6fe')
+            document.documentElement.style.setProperty('--tertiary-color', '#ffd1ed')
+            document.documentElement.style.setProperty('--hover-color', '#fbdcf8')
+          } else if (JSON.parse(boardType) == 'Alveus' && alveusBoard) {
+            nextState.board.tiles = JSON.parse(alveusBoard)
+          }
+        }
+        break
+
+      case '[Board] Add Chip' || '[Board] Remove Chip':
+        if (boardType) {
+          if (JSON.parse(boardType) == 'Alveus') {
+            if (alveusBoard)
+              nextState = { ...JSON.parse(alveusBoard), ...nextState }
+            localStorage.setItem('Alveus Board', JSON.stringify(nextState.board.tiles))
+          } else if (JSON.parse(boardType) == 'Desktop') {
+            if (desktopBoard)
+              nextState = { ...JSON.parse(desktopBoard), ...nextState }
+            localStorage.setItem('Desktop Board', JSON.stringify(nextState.board.tiles))
+          }
+        }
+        break
+    }
+    return nextState
   }
 }
 
