@@ -27,6 +27,8 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
 
     // if a user is visiting the site for the first time (no local storage)
     if (localStorage.length == 0) {
+      // shuffle the board
+      nextState.board.tiles = nextState.board.tiles.sort(() => Math.random() - 0.5)
       //save initial state
       localStorage.setItem('Board Type', JSON.stringify(nextState.board.type))
       localStorage.setItem('Alveus Board', JSON.stringify(nextState.board.tiles))
