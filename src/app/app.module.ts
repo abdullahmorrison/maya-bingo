@@ -85,8 +85,10 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
           } else if (JSON.parse(boardType) == 'Alveus') {
             if (desktopBoard)
               nextState.board.tiles = JSON.parse(desktopBoard)
-            else
+            else {
+              nextState.board.tiles = nextState.board.tiles.sort(() => Math.random() - 0.5)// shuffle the board
               localStorage.setItem('Desktop Board', JSON.stringify(nextState.board.tiles))
+            }
             localStorage.setItem('Board Type', JSON.stringify('Desktop'))
           }
         }
