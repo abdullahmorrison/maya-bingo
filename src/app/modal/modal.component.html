@@ -6,7 +6,10 @@
         <div class="main">
             <h2 class="title">BINGO!</h2>
             <div class="body">
-                <p>Placeholder Text</p>
+                <div class="board-tile" *ngFor="let tile of (winningTiles$ | async); let index = index">
+                    <img [src]="tile.imgSrc" [alt]="tile.imgAltText" draggable="false">
+                    <label for="">{{tile.title}}</label>
+                </div>
             </div>
             <div class="buttons">
                 <button class="focus">Continue Playing</button>
