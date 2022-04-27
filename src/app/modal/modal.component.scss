@@ -80,7 +80,7 @@
                         font-size: xx-small;
                     }
 
-                    //animation delay
+                    //staggering the hover animation
                     @for $i from 1 through 5{
                         &:nth-child(#{$i}){
                             -webkit-animation-delay: 600ms * $i;
