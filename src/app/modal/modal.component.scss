@@ -15,14 +15,18 @@
     /* Modal Content/Box */
     &-content {
         background-color: var(--primary-color);
-        border-radius: 20px;
-        border: 1px solid black;
 
-        margin: 15% auto; /* 15% from the top and centered */
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+
+        border: 1px solid black;
+        margin: 15% auto;/*15 from the top and centered*/
         padding: 10px 20px;
         width: 450px;
-
-        .header{
+        .header {
             display: flex;
             justify-content: flex-end;
             /* The Close Button */
@@ -60,7 +64,8 @@
                     width: 70px;
                     height: 80px;
                     margin: 5px;
-                    animation: hover 3s infinite;
+                    -webkit-animation: hover 3s ease-out infinite;
+                            animation: hover 3s ease-out infinite;
                     img{
                         max-width: 50px;
                         max-height: 40px;
@@ -73,7 +78,8 @@
                     //animation delay
                     @for $i from 1 through 5{
                         &:nth-child(#{$i}){
-                            animation-delay: 300ms * $i;
+                            -webkit-animation-delay: 600ms * $i;
+                                    animation-delay: 600ms * $i;
                         } 
                     }
                 }
@@ -115,11 +121,23 @@
 @keyframes hover {
     0% {
         transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
     }
     50% {
         transform: translateY(10px);
+        -webkit-transform: translateY(10px);
+        -moz-transform: translateY(10px);
+        -ms-transform: translateY(10px);
+        -o-transform: translateY(10px);
     }
     100% {
         transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
     } 
 }
