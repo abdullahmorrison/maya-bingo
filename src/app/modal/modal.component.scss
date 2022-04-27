@@ -163,3 +163,22 @@
         -o-transform: translateY(0);
     }
 }
+
+@media screen and (max-width: 520px) {
+    .modal-content {
+        width: 80vw;
+    }
+}
+@media screen and (max-width: 450px) {
+    .modal-content .main .buttons{
+        padding: 20px 0;
+        button{
+            font-size: small;
+        }
+    }
+}
+@media screen and (max-width: 350px) {
+    .modal-content .main .buttons button{
+        font-size: x-small;
+    }
+}
