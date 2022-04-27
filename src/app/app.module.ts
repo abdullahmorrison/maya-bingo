@@ -45,6 +45,7 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
     switch (action.type) {
       case INIT: //if the page is refreshed
         if (boardType) {
+          nextState.board.type = JSON.parse(boardType)
           if (JSON.parse(boardType) == 'Desktop' && desktopBoard) {
             nextState.board.tiles = JSON.parse(desktopBoard)
             // page colors for desktop stream
