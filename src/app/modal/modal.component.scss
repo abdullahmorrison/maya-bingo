@@ -14,6 +14,10 @@
 
     /* Modal Content/Box */
     &-content {
+        //slidethemodalinfromthetop
+        animation: slideIn 0.5s ease-in-out;
+        -webkit-animation: slideIn 0.5s ease-in-out;
+
         background-color: var(--primary-color);
 
         border-radius: 20px;
@@ -23,9 +27,10 @@
         -o-border-radius: 20px;
 
         border: 1px solid black;
-        margin: 15% auto;/*15 from the top and centered*/
+        margin: 15% auto; /*15 from the top and centered*/
         padding: 10px 20px;
         width: 450px;
+
         .header {
             display: flex;
             justify-content: flex-end;
@@ -140,4 +145,21 @@
         -ms-transform: translateY(0);
         -o-transform: translateY(0);
     } 
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100%);
+        -webkit-transform: translateY(-100%);
+        -moz-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+        -o-transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
 }
