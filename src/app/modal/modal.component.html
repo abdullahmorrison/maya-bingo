@@ -1,7 +1,7 @@
-<div *ngIf="bingo$ | async" id="myModal" class="modal">
+<div *ngIf="(bingo$ | async) && !(goForBlackout$ | async)" id="myModal" class="modal">
     <div class="modal-content">
         <div class="header">
-            <span class="close">&times;</span>
+            <span class="close" (click)="goForBlackout()">&times;</span>
         </div>
         <div class="main">
             <h2 class="title">BINGO!</h2>
@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="buttons">
-                <button class="focus">Continue Playing</button>
+                <button class="focus" (click)="goForBlackout()">Continue Playing</button>
                 <button (click)="newGame()">New Game</button>
             </div>
         </div>
