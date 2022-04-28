@@ -82,11 +82,13 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
               nextState = { ...JSON.parse(alveusBoard), ...nextState }
             localStorage.setItem('Alveus Board', JSON.stringify(nextState.board.tiles))
             localStorage.setItem('Alveus Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
+            localStorage.setItem('Alveus Bingo', JSON.stringify(nextState.board.bingo))
           } else if (JSON.parse(boardType) == 'Desktop') {
             if (desktopBoard)
               nextState = { ...JSON.parse(desktopBoard), ...nextState }
             localStorage.setItem('Desktop Board', JSON.stringify(nextState.board.tiles))
             localStorage.setItem('Desktop Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
+            localStorage.setItem('Desktop Bingo', JSON.stringify(nextState.board.bingo))
           }
         }
         break
