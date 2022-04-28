@@ -3,7 +3,7 @@ import { Board } from './../../store/board/board.model';
 import { Tile } from './../../store/tile/tile.model';
 
 import { Store } from '@ngrx/store';
-import { Observable, windowCount } from 'rxjs';
+import { Observable } from 'rxjs';
 import * as BoardActions from '../../store/board/board.actions';
 
 @Component({
@@ -19,8 +19,10 @@ export class BoardComponent implements OnInit {
 
     this.board$.subscribe({
       next: board => {
-        if (!board.bingo) {
+        if (!board.bingo && !board.goForBlackout) {
           this.checkBingo(board.tiles)
+        }else if(board.goForBlackout){
+          this.checkBlackout(board.tiles)
         }
       }
     })
@@ -38,6 +40,19 @@ export class BoardComponent implements OnInit {
     this.checkColumnBingo(tiles, chipsNeeded)
     this.checkDiagonalBingo(tiles, chipsNeeded)
   }
+  //check if the entire board is filled with chips
+  checkBlackout(tiles: Tile[]): void { 
+    let chips = 0
+    for (let i = 0; i < tiles.length; i++) {
+      if (tiles[i].clicked == true) {
+        chips++
+      }
+    }
+    if (chips == tiles.length) {
+      this.store.dispatch(BoardActions.blackout())
+    }
+  }
+
 
   checkRowBingo(tiles: Tile[], chipsNeeded: number): void {
     let chips = 0
