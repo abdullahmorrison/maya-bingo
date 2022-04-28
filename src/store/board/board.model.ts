@@ -5,5 +5,6 @@ export interface Board {
     tiles: Tile[]
     bingo: boolean,
     winningTiles: Tile[],
-    goForBlackout: boolean
+    goForBlackout: boolean,
+    blackout: boolean
 }

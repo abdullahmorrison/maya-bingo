@@ -11,7 +11,8 @@ export const initialState: Board = {
     tiles: alveusBoard.tiles,
     bingo: false,
     winningTiles: [],
-    goForBlackout: false
+    goForBlackout: false,
+    blackout: false
 }
 
 export const boardReducer = createReducer(
@@ -49,6 +50,7 @@ export const boardReducer = createReducer(
         ...state,
         bingo: false,
         goForBlackout: false,
+        blackout: false,
         tiles: state.tiles.map(tile => ({ ...tile, clicked: false })).sort(() => Math.random() - 0.5)
     })),
 )
