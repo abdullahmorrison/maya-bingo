@@ -32,12 +32,16 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
       //save initial state
       localStorage.setItem('Board Type', JSON.stringify(nextState.board.type))
       localStorage.setItem('Alveus Board', JSON.stringify(nextState.board.tiles))
+      localStorage.setItem('Alveus Bingo', JSON.stringify(nextState.board.bingo))
+      localStorage.setItem('Desktop Bingo', JSON.stringify(nextState.board.bingo))
       localStorage.setItem('Alveus Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
       localStorage.setItem('Desktop Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
       return nextState
     }
 
     const boardType = localStorage.getItem('Board Type')
+    const alveusBingo = localStorage.getItem('Alveus Bingo')
+    const desktopBingo = localStorage.getItem('Desktop Bingo')
     const alveusBoard = localStorage.getItem('Alveus Board')
     const desktopBoard = localStorage.getItem('Desktop Board')
     const alveusGoForBlackout = localStorage.getItem('Alveus Go For Blackout')
@@ -49,6 +53,8 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
           nextState.board.type = JSON.parse(boardType)
           if (JSON.parse(boardType) == 'Desktop' && desktopBoard) {
             nextState.board.tiles = JSON.parse(desktopBoard)
+            if(desktopBingo)
+              nextState.board.bingo = JSON.parse(desktopBingo)
             if(desktopGoForBlackout)
               nextState.board.goForBlackout = JSON.parse(desktopGoForBlackout)
             // page colors for desktop stream
@@ -57,6 +63,8 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
             document.documentElement.style.setProperty('--tertiary-color', '#ffd1ed')
             document.documentElement.style.setProperty('--hover-color', '#fbdcf8')
           } else if (JSON.parse(boardType) == 'Alveus' && alveusBoard) {
+            if(alveusBingo)
+              nextState.board.bingo = JSON.parse(alveusBingo)
             if(alveusGoForBlackout)
               nextState.board.goForBlackout = JSON.parse(alveusGoForBlackout)
             nextState.board.tiles = JSON.parse(alveusBoard)
@@ -86,6 +94,8 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
       case '[Board] Switch Stream':
         if (boardType) {
           if (JSON.parse(boardType) == 'Desktop') {
+            if(alveusBingo)
+              nextState.board.bingo = JSON.parse(alveusBingo)
             if(alveusGoForBlackout)
               nextState.board.goForBlackout = JSON.parse(alveusGoForBlackout)
             if (alveusBoard)
@@ -94,6 +104,8 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
               localStorage.setItem('Alveus Board', JSON.stringify(nextState.board.tiles))
             localStorage.setItem('Board Type', JSON.stringify('Alveus'))
           } else if (JSON.parse(boardType) == 'Alveus') {
+            if(desktopBingo)
+              nextState.board.bingo = JSON.parse(desktopBingo)
             if(desktopGoForBlackout)
               nextState.board.goForBlackout = JSON.parse(desktopGoForBlackout)
             if (desktopBoard)
@@ -108,13 +120,13 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
         break
         case '[Board] Go For Blackout':
           if (boardType) {
-            if (JSON.parse(boardType) == 'Alveus') {
-                localStorage.setItem('Alveus Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
-            } else if (JSON.parse(boardType) == 'Desktop') {
-                localStorage.setItem('Desktop Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
-            }
+            if (JSON.parse(boardType) == 'Alveus') 
+                localStorage.setItem(JSON.parse(boardType)+' Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
           }
           break
+        case '[Board] Bingo':
+          if (boardType) 
+              localStorage.setItem(JSON.parse(boardType)+' Bingo', JSON.stringify(nextState.board.bingo))
     }
     return nextState
   }
