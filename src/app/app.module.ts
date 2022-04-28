@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 //ngrx
-import { StoreModule, MetaReducer, Action, ActionReducer, INIT, UPDATE } from '@ngrx/store';
+import { StoreModule, MetaReducer, Action, ActionReducer, INIT } from '@ngrx/store';
 import { boardReducer } from 'src/store/board/board.reducers';
 //devtools
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -32,7 +32,8 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
       //save initial state
       localStorage.setItem('Board Type', JSON.stringify(nextState.board.type))
       localStorage.setItem('Alveus Board', JSON.stringify(nextState.board.tiles))
-      localStorage.setItem('Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
+      localStorage.setItem('Alveus Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
+      localStorage.setItem('Desktop Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
       return nextState
     }
 
@@ -48,12 +49,16 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
           nextState.board.type = JSON.parse(boardType)
           if (JSON.parse(boardType) == 'Desktop' && desktopBoard) {
             nextState.board.tiles = JSON.parse(desktopBoard)
+            if(desktopGoForBlackout)
+              nextState.board.goForBlackout = JSON.parse(desktopGoForBlackout)
             // page colors for desktop stream
             document.documentElement.style.setProperty('--primary-color', '#ff9bd7')
             document.documentElement.style.setProperty('--secondary-color', '#fff6fe')
             document.documentElement.style.setProperty('--tertiary-color', '#ffd1ed')
             document.documentElement.style.setProperty('--hover-color', '#fbdcf8')
           } else if (JSON.parse(boardType) == 'Alveus' && alveusBoard) {
+            if(alveusGoForBlackout)
+              nextState.board.goForBlackout = JSON.parse(alveusGoForBlackout)
             nextState.board.tiles = JSON.parse(alveusBoard)
           }
         }
@@ -63,14 +68,17 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
       case '[Board] Remove Chip':
       case '[Board] New Game':
         if (boardType) {
+          // save state depending on board type
           if (JSON.parse(boardType) == 'Alveus') {
             if (alveusBoard)
               nextState = { ...JSON.parse(alveusBoard), ...nextState }
             localStorage.setItem('Alveus Board', JSON.stringify(nextState.board.tiles))
+            localStorage.setItem('Alveus Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
           } else if (JSON.parse(boardType) == 'Desktop') {
             if (desktopBoard)
               nextState = { ...JSON.parse(desktopBoard), ...nextState }
             localStorage.setItem('Desktop Board', JSON.stringify(nextState.board.tiles))
+            localStorage.setItem('Desktop Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
           }
         }
         break
@@ -78,12 +86,16 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
       case '[Board] Switch Stream':
         if (boardType) {
           if (JSON.parse(boardType) == 'Desktop') {
+            if(alveusGoForBlackout)
+              nextState.board.goForBlackout = JSON.parse(alveusGoForBlackout)
             if (alveusBoard)
               nextState.board.tiles = JSON.parse(alveusBoard)
             else
               localStorage.setItem('Alveus Board', JSON.stringify(nextState.board.tiles))
             localStorage.setItem('Board Type', JSON.stringify('Alveus'))
           } else if (JSON.parse(boardType) == 'Alveus') {
+            if(desktopGoForBlackout)
+              nextState.board.goForBlackout = JSON.parse(desktopGoForBlackout)
             if (desktopBoard)
               nextState.board.tiles = JSON.parse(desktopBoard)
             else {
@@ -94,6 +106,15 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
           }
         }
         break
+        case '[Board] Go For Blackout':
+          if (boardType) {
+            if (JSON.parse(boardType) == 'Alveus') {
+                localStorage.setItem('Alveus Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
+            } else if (JSON.parse(boardType) == 'Desktop') {
+                localStorage.setItem('Desktop Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
+            }
+          }
+          break
     }
     return nextState
   }
