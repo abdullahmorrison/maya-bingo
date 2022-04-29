@@ -53,4 +53,5 @@ export const boardReducer = createReducer(
         blackout: false,
         tiles: state.tiles.map(tile => ({ ...tile, clicked: false })).sort(() => Math.random() - 0.5)
     })),
+    on(BoardActions.blackout, state => ({ ...state, blackout: true }))
 )

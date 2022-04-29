@@ -20,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BoardTileComponent } from './board-tile/board-tile.component';
 import { ChipComponent } from './chip/chip.component';
 import { ModalComponent } from './modal/modal.component';
+import { BlackoutModalComponent } from './blackout-modal/blackout-modal.component';
 
 export function storageMetaReducer(reducer: ActionReducer<any>) {
   return function (state: Board, action: Action) {
@@ -147,7 +148,8 @@ export const metaReducers: MetaReducer<any>[] = [storageMetaReducer];
     FooterComponent,
     BoardTileComponent,
     ChipComponent,
-    ModalComponent
+    ModalComponent,
+    BlackoutModalComponent
   ],
   imports: [
     BrowserModule,

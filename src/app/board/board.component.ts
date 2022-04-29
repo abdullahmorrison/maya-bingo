@@ -21,7 +21,7 @@ export class BoardComponent implements OnInit {
       next: board => {
         if (!board.bingo && !board.goForBlackout) {
           this.checkBingo(board.tiles)
-        }else if(board.goForBlackout){
+        }else if(board.goForBlackout && !board.blackout){
           this.checkBlackout(board.tiles)
         }
       }
