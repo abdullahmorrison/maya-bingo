@@ -1,3 +1,4 @@
+import { GoogleAnalyticsService } from './../../services/google-analytics.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./description.component.scss']
 })
 export class DescriptionComponent implements OnInit {
+  googleAnalyticsService: GoogleAnalyticsService
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() { 
+    this.googleAnalyticsService = new GoogleAnalyticsService();
   }
 
+  ngOnInit(): void { }
+
+  trackGoogleAnalytics(): void{
+    this.googleAnalyticsService.eventEmitter("description_link", "extra", "click", "twitch.tv/maya");
+  }
 }

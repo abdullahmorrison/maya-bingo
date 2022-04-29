@@ -1,3 +1,4 @@
+import { GoogleAnalyticsService } from './../../services/google-analytics.service';
 import { addChip, removeChip } from '../../../store/board/board.actions';
 import { Board } from '../../../store/board/board.model';
 import { Store } from '@ngrx/store';
@@ -16,6 +17,8 @@ export class BoardTileComponent implements OnInit {
   @Input() title: string
   @Input() clicked: boolean
 
+  googleAnalyticsService: GoogleAnalyticsService
+
   constructor(private store: Store<{board: Board}>) { 
     this.index = -1 // for ngrx to find which tile is clicked to add a chip
 
@@ -23,16 +26,22 @@ export class BoardTileComponent implements OnInit {
     this.imgAltText = "No Image"
     this.title = "No Title"
     this.clicked = false
+
+    this.googleAnalyticsService = new GoogleAnalyticsService()
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
   
   handleClick(){
     if(!this.clicked){
       this.store.dispatch(addChip({index: this.index}))
+      this.trackGoogleAnalytics("add")
     }else{
       this.store.dispatch(removeChip({index: this.index}))
+      this.trackGoogleAnalytics("remove")
     }
+  }
+  trackGoogleAnalytics(addOrRemove: "add" | "remove"): void{
+    this.googleAnalyticsService.eventEmitter(addOrRemove+"_chip","bingo", "click")
   }
 }

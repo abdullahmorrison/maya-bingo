@@ -1,3 +1,4 @@
+import { GoogleAnalyticsService } from './../../services/google-analytics.service';
 import { Component, OnInit } from '@angular/core';
 import { Board } from '../../../store/board/board.model';
 import { Tile } from '../../../store/tile/tile.model';
@@ -13,9 +14,11 @@ import * as BoardActions from '../../../store/board/board.actions';
 })
 export class BoardComponent implements OnInit {
   board$: Observable<Board>
+  googleAnalyticsService: GoogleAnalyticsService
 
   constructor(private store: Store<{ board: Board }>) {
     this.board$ = this.store.select('board')
+    this.googleAnalyticsService = new GoogleAnalyticsService()
 
     this.board$.subscribe({
       next: board => {
@@ -32,6 +35,14 @@ export class BoardComponent implements OnInit {
 
   bingo(winningTiles: Tile[]): void {
     this.store.dispatch(BoardActions.bingo({ winningTiles }))
+    this.trackGoogleAnalytics("bingo")
+  }
+
+  trackGoogleAnalytics(win: "bingo"|"blackout"): void {
+    if(win == "bingo")
+      this.googleAnalyticsService.eventEmitter('bingo_win', 'bingo', 'check_win')
+    else if(win == "blackout")
+      this.googleAnalyticsService.eventEmitter('blackout_win', 'blackout', 'check_win')
   }
 
   checkBingo(tiles: Tile[]): void {
@@ -50,6 +61,7 @@ export class BoardComponent implements OnInit {
     }
     if (chips == tiles.length) {
       this.store.dispatch(BoardActions.blackout())
+      this.trackGoogleAnalytics("blackout")
     }
   }
 

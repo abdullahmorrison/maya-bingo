@@ -1,3 +1,4 @@
+import { GoogleAnalyticsService } from './../../services/google-analytics.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+  googleAnalyticsService: GoogleAnalyticsService
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() { 
+    this.googleAnalyticsService = new GoogleAnalyticsService();
   }
 
+  ngOnInit(): void { }
+
+  trackGoogleAnalytics(link: string) {
+    this.googleAnalyticsService.eventEmitter("footer_link", "extra", "click", link);
+  }
 }
