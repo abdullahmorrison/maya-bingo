@@ -1,3 +1,4 @@
+import { GoogleAnalyticsService } from './services/google-analytics.service';
 import { Board } from './../store/board/board.model';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -156,7 +157,7 @@ export const metaReducers: MetaReducer<any>[] = [storageMetaReducer];
     StoreModule.forRoot({ board: boardReducer }, { metaReducers }),
     StoreDevtoolsModule.instrument({ logOnly: environment.production })
   ],
-  providers: [],
+  providers: [GoogleAnalyticsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
