@@ -3,6 +3,7 @@ import { Board } from '../../../store/board/board.model';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
+import{GoogleAnalyticsService} from '../../services/google-analytics.service';
 import * as BoardActions from '../../../store/board/board.actions';
 
 @Component({
@@ -12,14 +13,27 @@ import * as BoardActions from '../../../store/board/board.actions';
 })
 export class SwitchComponent implements OnInit {
   switch$: Observable<string>
+  googleAnalyticsService: GoogleAnalyticsService;
 
   constructor(private store: Store<{ board: Board }>) {
     this.switch$ = this.store.select('board').pipe(map(board => board.type))
+    this.googleAnalyticsService = new GoogleAnalyticsService();
+
+    this.switch$.subscribe((boardType) => {
+      this.trackGoogleAnalytics(boardType)
+    })
   }
 
   ngOnInit(): void { }
 
   handleClick(): void {
+    this.swithcBoard()
+  }
+
+  trackGoogleAnalytics(boardType: string): void {
+    this.googleAnalyticsService.eventEmitter("switch_board","bingo", "click", "switch_to_"+boardType)
+  }
+  swithcBoard(): void {
     //change the board data
     this.store.dispatch(BoardActions.switchBoard())
 
