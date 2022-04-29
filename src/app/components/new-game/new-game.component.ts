@@ -1,6 +1,6 @@
-import { Board } from './../../store/board/board.model';
+import { Board } from '../../../store/board/board.model';
 import { Store } from '@ngrx/store';
-import * as BoardActions  from '../../store/board/board.actions';
+import * as BoardActions  from '../../../store/board/board.actions';
 
 import { Component, OnInit } from '@angular/core';
 

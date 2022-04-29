@@ -11,17 +11,17 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 
 //components
-import { AppComponent } from './app.component';
-import { NavComponent } from './nav/nav.component';
-import { DescriptionComponent } from './description/description.component';
-import { BoardComponent } from './board/board.component';
-import { SwitchComponent } from './switch/switch.component';
-import { NewGameComponent } from './new-game/new-game.component';
-import { FooterComponent } from './footer/footer.component';
-import { BoardTileComponent } from './board-tile/board-tile.component';
-import { ChipComponent } from './chip/chip.component';
-import { BingoModalComponent } from './bingo-modal/bingo-modal.component';
-import { BlackoutModalComponent } from './blackout-modal/blackout-modal.component';
+import { AppComponent } from './components/app.component';
+import { NavComponent } from './components/nav/nav.component';
+import { DescriptionComponent } from './components/description/description.component';
+import { BoardComponent } from './components/board/board.component';
+import { SwitchComponent } from './components/switch/switch.component';
+import { NewGameComponent } from './components/new-game/new-game.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { BoardTileComponent } from './components/board-tile/board-tile.component';
+import { ChipComponent } from './components/chip/chip.component';
+import { BingoModalComponent } from './components/bingo-modal/bingo-modal.component';
+import { BlackoutModalComponent } from './components/blackout-modal/blackout-modal.component';
 
 export function storageMetaReducer(reducer: ActionReducer<any>) {
   return function (state: Board, action: Action) {

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Board } from './../../store/board/board.model';
-import { Tile } from './../../store/tile/tile.model';
+import { Board } from '../../../store/board/board.model';
+import { Tile } from '../../../store/tile/tile.model';
 
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import * as BoardActions from '../../store/board/board.actions';
+import * as BoardActions from '../../../store/board/board.actions';
 
 @Component({
   selector: 'app-board',

@@ -2,7 +2,7 @@ import { Store } from '@ngrx/store';
 
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { Board } from './../../store/board/board.model';
+import { Board } from '../../../store/board/board.model';
 
 import { Component, OnInit } from '@angular/core';
 

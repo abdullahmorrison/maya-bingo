@@ -1,5 +1,5 @@
-import { addChip, removeChip } from '../../store/board/board.actions';
-import { Board } from '../../store/board/board.model';
+import { addChip, removeChip } from '../../../store/board/board.actions';
+import { Board } from '../../../store/board/board.model';
 import { Store } from '@ngrx/store';
 import { Component, Input, OnInit } from '@angular/core';
 

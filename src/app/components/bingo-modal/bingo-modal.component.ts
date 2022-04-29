@@ -1,9 +1,9 @@
-import { Tile } from '../../store/tile/tile.model';
-import { Board } from '../../store/board/board.model';
+import { Tile } from '../../../store/tile/tile.model';
+import { Board } from '../../../store/board/board.model';
 import { Component, OnInit } from '@angular/core';
 
 import { Store } from '@ngrx/store';
-import * as BoardActions from '../../store/board/board.actions';
+import * as BoardActions from '../../../store/board/board.actions';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 

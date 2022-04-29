@@ -1,6 +1,6 @@
 import { Store } from '@ngrx/store';
 
-import { Board } from './../../store/board/board.model';
+import { Board } from '../../../store/board/board.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
