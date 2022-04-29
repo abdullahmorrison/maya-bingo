@@ -1,0 +1,13 @@
+<div id="myModal" class="modal" *ngIf="blackout$ | async">
+    <div class="modal-content">
+        <div class="main">
+            <h2 class="title">Blackout!</h2>
+            <div class="body">
+                Congrats! You've filled the entire board!
+            </div>
+            <div class="buttons">
+                <button (click)="newGame()">New Game</button>
+            </div>
+        </div>
+    </div>
+</div>
