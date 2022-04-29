@@ -1,5 +1,5 @@
-import { Tile } from './../../store/tile/tile.model';
-import { Board } from './../../store/board/board.model';
+import { Tile } from '../../store/tile/tile.model';
+import { Board } from '../../store/board/board.model';
 import { Component, OnInit } from '@angular/core';
 
 import { Store } from '@ngrx/store';
@@ -8,11 +8,11 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  selector: 'app-bingo-modal',
+  templateUrl: './bingo-modal.component.html',
+  styleUrls: ['./bingo-modal.component.scss']
 })
-export class ModalComponent implements OnInit {
+export class BingoModalComponent implements OnInit {
   bingo$: Observable<boolean>
   winningTiles$: Observable<Tile[]>
   goForBlackout$: Observable<boolean>
