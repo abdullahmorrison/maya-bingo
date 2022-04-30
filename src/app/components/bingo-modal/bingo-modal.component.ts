@@ -31,12 +31,16 @@ export class BingoModalComponent implements OnInit {
 
   newGame() {
     this.store.dispatch(BoardActions.newGame())
-    this.trackGoogleAnalytics()
+    this.trackGoogleAnalytics("bingo")
   }
   goForBlackout(){
     this.store.dispatch(BoardActions.goForBlackout())
+    this.trackGoogleAnalytics("blackout")
   }
-  trackGoogleAnalytics(): void{
-    this.googleAnalyticsService.eventEmitter("new_game","bingo", "click")
+  trackGoogleAnalytics(bingoOrBlackout: "bingo" | "blackout"): void{
+    if(bingoOrBlackout === "bingo")
+      this.googleAnalyticsService.eventEmitter("new_game","bingo", "click")
+    else if(bingoOrBlackout === "blackout")
+      this.googleAnalyticsService.eventEmitter("go_for_blackout","bingo", "click")
   }
 }
