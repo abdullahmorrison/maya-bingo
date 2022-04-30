@@ -3,14 +3,14 @@
     "tiles": [
         {
             "title": "Singing Time",
-            "imgSrc": "../../assets/board/desktop/pepoCandle.png",
-            "imgAltText": "pepoCandle emote",
+            "imgSrc": "../../assets/board/desktop/peepoCandle.gif",
+            "imgAltText": "peepoCandle emote",
             "clicked": false
         },
         {
-            "title": "Wheel Time",
-            "imgSrc": "../../assets/board/desktop/wheel.png",
-            "imgAltText": "Maya's wheel",
+            "title": "Maya Says \"I'm Gonna Throw Up\"",
+            "imgSrc": "../../assets/board/desktop/throwUp.png",
+            "imgAltText": "Throw up emoji",
             "clicked": false
         },
         {
@@ -21,7 +21,7 @@
         },
         {
             "title": "Maya is Drunk",
-            "imgSrc": "../../assets/board/desktop/mayaDrunk.png",
+            "imgSrc": "../../assets/board/desktop/mayaDrunk.gif",
             "imgAltText": "mayahiPPEH emote",
             "clicked": false
         },
@@ -62,15 +62,15 @@
             "clicked": false
         },
         {
-            "title": "New Cringe in the Kitchen",
-            "imgSrc": "../../assets/board/desktop/cringeInKitchen.png",
-            "imgAltText": "Cringe in the kitchen banner",
+            "title": "Maya says \"I'm Famous\"",
+            "imgSrc": "../../assets/board/desktop/mayaEZ.png",
+            "imgAltText": "mayahiEZ emote",
             "clicked": false
         },
         {
-            "title": "New Wine About It",
-            "imgSrc": "../../assets/board/desktop/wineAboutIt.png",
-            "imgAltText": "Wine About It banner",
+            "title": "Guest On Stream",
+            "imgSrc": "../../assets/board/desktop/guestOnStream.png",
+            "imgAltText": "Ambish hanging out with Maya",
             "clicked": false
         },
         {
@@ -134,15 +134,15 @@
             "clicked": false
         },
         {
-            "title": "Maya Like Toxic TikToks",
+            "title": "Maya Likes Toxic TikToks",
             "imgSrc": "../../assets/board/desktop/toxicTiktoks.png",
             "imgAltText": "TikTok logo surrounded by red flags",
             "clicked": false
         },
         {
-            "title": "Dono Essay",
-            "imgSrc": "../../assets/board/desktop/chatting.png",
-            "imgAltText": "Chatting emote",
+            "title": "Pee Break",
+            "imgSrc": "../../assets/board/desktop/peeBreak.gif",
+            "imgAltText": "peepoo sitting on toilet",
             "clicked": false
         },
         {

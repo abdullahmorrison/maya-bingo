@@ -2,9 +2,9 @@
   "type": "Alveus",
   "tiles": [
     {
-      "title": "New Animal Quest",
-      "imgSrc": "../../assets/board/alveus/animalQuest.png",
-      "imgAltText": "Animal quest banner",
+      "title": "Maya Drinks from Pee Bottle",
+      "imgSrc": "../../assets/board/alveus/peeBottle.png",
+      "imgAltText": "Maya's tinted water bottle",
       "clicked": false
     },
     {
@@ -104,9 +104,9 @@
       "clicked": false
     },
     {
-      "title": "Maya Eats Animal Grain",
-      "imgSrc": "../../assets/board/alveus/mayaEatGrain.png",
-      "imgAltText": "Animal Grain",
+      "title": "Maya Showing Poor Knife Skills",
+      "imgSrc": "../../assets/board/alveus/mayaKnifeSkills.png",
+      "imgAltText": "Maya cutting produce",
       "clicked": false
     },
     {
