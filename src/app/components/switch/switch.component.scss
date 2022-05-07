@@ -98,3 +98,12 @@ input:checked + .slider:before {
     }
   }
 }
+@media (prefers-reduced-motion) {
+  .slider:before {
+    -webkit-transition: none;
+    transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+}
+}
