@@ -193,8 +193,12 @@
     } 
 }
 @media (prefers-reduced-motion) {
-    .modal-content, .board-tile{
+    .modal-content{
         -webkit-animation: dissolveIn 0.5s ease-in-out;
                 animation: dissolveIn 0.5s ease-in-out;
+    }
+    .modal-content .main .body .board-tile{
+        -webkit-animation: none;
+                animation: none;
     }
 }
