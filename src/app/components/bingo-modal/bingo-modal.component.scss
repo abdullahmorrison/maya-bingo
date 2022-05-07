@@ -182,3 +182,19 @@
         font-size: x-small;
     }
 }
+
+// accessibility for vestibular motion disorders.
+@keyframes dissolveIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    } 
+}
+@media (prefers-reduced-motion) {
+    .modal-content, .board-tile{
+        -webkit-animation: dissolveIn 0.5s ease-in-out;
+                animation: dissolveIn 0.5s ease-in-out;
+    }
+}
