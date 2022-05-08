@@ -38,6 +38,8 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
       localStorage.setItem('Desktop Bingo', JSON.stringify(nextState.board.bingo))
       localStorage.setItem('Alveus Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
       localStorage.setItem('Desktop Go For Blackout', JSON.stringify(nextState.board.goForBlackout))
+      localStorage.setItem('Winning Tiles Desktop', JSON.stringify(nextState.board.winningTiles))
+      localStorage.setItem('Winning Tiles Alveus', JSON.stringify(nextState.board.winningTiles))
       return nextState
     }
 
@@ -48,6 +50,8 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
     const desktopBoard = localStorage.getItem('Desktop Board')
     const alveusGoForBlackout = localStorage.getItem('Alveus Go For Blackout')
     const desktopGoForBlackout = localStorage.getItem('Desktop Go For Blackout')
+    const winningTilesDesktop = localStorage.getItem('Winning Tiles Desktop')
+    const winningTilesAlveus = localStorage.getItem('Winning Tiles Alveus')
 
     switch (action.type) {
       case INIT: //if the page is refreshed
@@ -59,6 +63,8 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
               nextState.board.bingo = JSON.parse(desktopBingo)
             if(desktopGoForBlackout)
               nextState.board.goForBlackout = JSON.parse(desktopGoForBlackout)
+            if(winningTilesDesktop)
+              nextState.board.winningTiles = JSON.parse(winningTilesDesktop)
             // page colors for desktop stream
             document.documentElement.style.setProperty('--primary-color', '#ff9bd7')
             document.documentElement.style.setProperty('--secondary-color', '#fff6fe')
@@ -69,6 +75,8 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
               nextState.board.bingo = JSON.parse(alveusBingo)
             if(alveusGoForBlackout)
               nextState.board.goForBlackout = JSON.parse(alveusGoForBlackout)
+            if(winningTilesAlveus)
+              nextState.board.winningTiles = JSON.parse(winningTilesAlveus)
             nextState.board.tiles = JSON.parse(alveusBoard)
           }
         }
@@ -102,6 +110,8 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
               nextState.board.bingo = JSON.parse(alveusBingo)
             if(alveusGoForBlackout)
               nextState.board.goForBlackout = JSON.parse(alveusGoForBlackout)
+            if (winningTilesAlveus)
+              nextState.board.winningTiles = JSON.parse(winningTilesAlveus)
             if (alveusBoard)
               nextState.board.tiles = JSON.parse(alveusBoard)
             else
@@ -112,6 +122,8 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
               nextState.board.bingo = JSON.parse(desktopBingo)
             if(desktopGoForBlackout)
               nextState.board.goForBlackout = JSON.parse(desktopGoForBlackout)
+            if (winningTilesAlveus)
+              nextState.board.winningTiles = JSON.parse(winningTilesAlveus)
             if (desktopBoard)
               nextState.board.tiles = JSON.parse(desktopBoard)
             else {
@@ -129,8 +141,10 @@ export function storageMetaReducer(reducer: ActionReducer<any>) {
           }
           break
         case '[Board] Bingo':
-          if (boardType) 
+          if (boardType){
               localStorage.setItem(JSON.parse(boardType)+' Bingo', JSON.stringify(nextState.board.bingo))
+              localStorage.setItem('Winning Tiles '+JSON.parse(boardType), JSON.stringify(nextState.board.winningTiles))
+          }
     }
     return nextState
   }
